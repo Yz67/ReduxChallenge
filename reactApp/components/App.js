@@ -1,14 +1,17 @@
 import React from 'react';
+import { Header } from 'semantic-ui-react';
+import Scheduler from '../containers/Scheduler';
 
-const displayMessage =
-  'The React Redux Boilerplate is running successfully!';
 
 // class component
 class App extends React.Component {
   render() {
     return (
       <div>
-        <p>{displayMessage}</p>
+        <Header as='h1' block>
+          Conference Call Scheduler
+        </Header>
+        <Scheduler/>
       </div>
     );
   }
