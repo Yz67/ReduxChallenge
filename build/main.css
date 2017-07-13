@@ -1,0 +1,33 @@
+body, html {
+    height: 100%;
+    width: 100%;
+}
+
+.timeslotlist {
+    border: 1px solid yellow;
+}
+
+.timeslot {
+    padding: 10px;
+    border-bottom: 1px solid black;
+    display: flex;
+}
+
+.time {
+    /*border-right: 1px solid blue;*/
+    width: 40px;
+    font-size: 30px;
+}
+
+.timeslotinfo {
+    flex: 1;
+    padding: 5px;
+}
+
+.occupied {
+    background-color: pink;
+}
+
+.open {
+    background-color: #e6e0e0;
+}
