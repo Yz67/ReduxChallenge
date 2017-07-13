@@ -1,25 +1,18 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 const displayMessage =
   'The React Redux Boilerplate is running successfully!';
 
 // class component
-class App extends React.Component {
-  render() {
-    return (
-      <div>
-        <p>{displayMessage}</p>
-      </div>
-    );
-  }
-};
+
 
 /* Equivalent function component! */
-// const App = (/* props OR { prop1, prop2 } */) => (
-//    <div>
-//      <p>{displayMessage}</p>
-//    </div>
-// );
+const App = ({}) => (
+    <div>
+        <p>{displayMessage}</p>
+    </div>
+);
 
 
 /*
@@ -27,19 +20,17 @@ class App extends React.Component {
   This is what you do if you want this component or any
   other to become a connected "container" component!
 ==========================================================
-*/
-// /* At top of file: */
-// import { connect } from 'react-redux';
 //
 // /* At bottom of file: */
+
 // const mapStateToProps = (state) => ({
-//    someStateProp: /* state.something typically */
+//    someStateProp: /* state.something typically */1
 // });
 //
 // const mapDispatchToProps = (dispatch) => ({
-//    someDispProp: /* some function that dispatches an action */
+//    someDispProp: /* some function that dispatches an action */1
 // });
-//
+
 // App = connect(mapStateToProps, mapDispatchToProps)(App);
 
 export default App;
