@@ -28,45 +28,42 @@ function getIndex(hour){
 const mainReducer = (state = initState, action) => {
    //SWITCH STATEMENT TO HANDLE ACTIONS GOES HERE
    let stateCopy;
+   let index;
 
    switch(action.type) {
-     case 'HOUR_CLICK':
-        // console.log(state)
-        stateCopy = state.timeSlots.slice();
-        // console.log(stateCopy)
-        for(var i = 0; i < stateCopy.length; i++){
-          if(action.id === stateCopy[i].hour){
-              stateCopy[i].scheduled = !stateCopy[i].scheduled;
-          }
-        }
-        // console.log(stateCopy);
-
-        //need to put it back in object so that it is the same
-        return {
-          modalIsOpen: state.modalIsOpen,
-          idModal: state.idModal,
-          timeSlots: stateCopy,
-          nameInput: state.nameInput,
-          phoneInput: state.phoneInput
-        };
 
      case 'OPEN_MODAL':
+
+        stateCopy = state.timeSlots.slice();
+        index = getIndex(action.id);
 
         return {
           modalIsOpen: !state.modalIsOpen,
           idModal: action.id,
           timeSlots: state.timeSlots,
-          nameInput: state.nameInput,
-          phoneInput: state.phoneInput
+          nameInput: stateCopy[index].nameInput,
+          phoneInput: stateCopy[index].phoneInput
         }
 
       case 'CLOSE_MODAL':
+
         stateCopy = state.timeSlots.slice();
-        let index = getIndex(state.idModal);
+        index = getIndex(state.idModal);
+        //console.log(index);
 
         //update that individuals NAMEINPUT AND PHONEINPUT according to state.idModal
         stateCopy[index].nameInput = state.nameInput;
         stateCopy[index].phoneInput = state.phoneInput;
+
+        // console.log(state)
+        stateCopy = state.timeSlots.slice();
+        //console.log(stateCopy)
+
+        if(stateCopy[index].nameInput.length !== 0 || stateCopy[getIndex(state.idModal)].phoneInput.length !== 0 ){
+            stateCopy[index].scheduled = true;
+        }else{
+            stateCopy[index].scheduled = false;
+        }
 
         return {
           modalIsOpen: !state.modalIsOpen,

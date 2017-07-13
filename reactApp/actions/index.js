@@ -1,12 +1,5 @@
 /* Add your actions here */
 
-function hourClick(id) {
-    return {
-      type: 'HOUR_CLICK',
-      id
-    };
-}
-
 function openModal(id){
   return {
     type: 'OPEN_MODAL',
@@ -34,4 +27,4 @@ function phoneChange(phone){
   }
 }
 
-export {hourClick, openModal, closeModal, nameChange, phoneChange}
+export { openModal, closeModal, nameChange, phoneChange}

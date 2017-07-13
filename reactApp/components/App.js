@@ -1,12 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { hourClick, openModal, closeModal, nameChange, phoneChange } from '../actions/index.js';
+import {  openModal, closeModal, nameChange, phoneChange } from '../actions/index.js';
 import Modal from 'react-modal';
 import Slot from './Slot.js'
 
 
 /* Equivalent function component! */
-let App = ({timeSlots, onHourClick, modalIsOpen, onOpenModal, idModal, onCloseModal, onNameChange, onPhoneChange, nameInput, phoneInput}) => {
+let App = ({timeSlots, modalIsOpen, onOpenModal, idModal, onCloseModal, onNameChange, onPhoneChange, nameInput, phoneInput}) => {
     let liveName;
     let livePhone;
 
@@ -25,7 +25,6 @@ let App = ({timeSlots, onHourClick, modalIsOpen, onOpenModal, idModal, onCloseMo
               key = {slot.hour}
               scheduled = {slot.scheduled}
               hour = {slot.hour}
-              onHourClick = {onHourClick}
               onOpenModal = {onOpenModal}
               name = {slot.nameInput}
               phone = {slot.phoneInput}
@@ -105,7 +104,6 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        onHourClick: (id) => dispatch(hourClick(id)),
         onOpenModal: (id) => dispatch(openModal(id)),
         onCloseModal: () => dispatch(closeModal()),
         onNameChange: (name) => dispatch(nameChange(name)),

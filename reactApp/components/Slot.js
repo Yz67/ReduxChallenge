@@ -1,6 +1,6 @@
 import React from 'react';
 
-let Slot = ({scheduled, hour, onHourClick, onOpenModal, name, phone}) => {
+let Slot = ({scheduled, hour,  onOpenModal, name, phone}) => {
 
     return (
       scheduled ?
@@ -8,7 +8,7 @@ let Slot = ({scheduled, hour, onHourClick, onOpenModal, name, phone}) => {
         <div
           // key = {hour}
           style = {styleScheduled}
-          onClick={() => onHourClick(hour), () => onOpenModal(hour)}>
+          onClick={ () => onOpenModal(hour)}>
 
             <div>{hour + ':00'}</div>
             <div>{name}</div>
@@ -22,7 +22,7 @@ let Slot = ({scheduled, hour, onHourClick, onOpenModal, name, phone}) => {
         <div
           //key = {hour}
           style = {styleNotScheduled}
-          onClick={() => onHourClick(hour), () => onOpenModal(hour)}>
+          onClick={ () => onOpenModal(hour)}>
 
             <div>{hour + ':00'}</div>
             <div>{name}</div>
@@ -53,19 +53,3 @@ const styleNotScheduled = {
 
 
 export default Slot;
-
-
-// slot.scheduled ?
-// <div
-//   key = {slot.hour}
-//   style = {styleScheduled}
-//   onClick={() => onHourClick(slot.hour), () => onOpenModal(slot.hour)}>
-//         {slot.hour + ':00'}
-// </div> :
-//
-// <div
-//   key = {slot.hour}
-//   style = {styleNotScheduled}
-//   onClick={() => onHourClick(slot.hour), () => onOpenModal(slot.hour)}>
-//         {slot.hour + ':00'}
-// </div>
