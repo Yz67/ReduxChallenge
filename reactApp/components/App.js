@@ -1,14 +1,12 @@
 import React from 'react';
-
-const displayMessage =
-  'The React Redux Boilerplate is running successfully!';
+import Week from './Week';
 
 // class component
 class App extends React.Component {
   render() {
     return (
       <div>
-        <p>{displayMessage}</p>
+        <Week></Week>
       </div>
     );
   }
