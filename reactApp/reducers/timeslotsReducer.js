@@ -1,9 +1,18 @@
-const timeslotsReducer = (state = [
-    {time: 9, info: {firstName: 'Pam', lastName: 'Needle', number: '5164261057'}, occupied: true},
-    { time: 10, info: {firstName: '', lastName: '', number: ''}, occupied: false},
-    { time: 11, info: {firstName: '', lastName: '', number: ''}, occupied: false},
-    { time: 12, info: {firstName: '', lastName: '', number: ''}, occupied: false}
-], action) => {
+import _ from 'underscore';
+
+const defaultsched = [9,10,11,12,1,2,3,4,5].map( (time) => {return {
+    time: time,
+    info: {firstName: '', lastName: '', number: ''},
+    occupied: false
+}})
+
+// [
+//     {time: 9, info: {firstName: 'Pam', lastName: 'Needle', number: '5164261057'}, occupied: true},
+//     { time: 10, info: {firstName: '', lastName: '', number: ''}, occupied: false},
+//     { time: 11, info: {firstName: '', lastName: '', number: ''}, occupied: false},
+//     { time: 12, info: {firstName: '', lastName: '', number: ''}, occupied: false}
+// ]
+const timeslotsReducer = (state = defaultsched , action) => {
     switch (action.type) {
         case 'MODAL_SUBMIT':
         console.log('modifying timeslot with action values', action.values);
