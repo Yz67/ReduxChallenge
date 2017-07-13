@@ -1,4 +1,6 @@
 import React from 'react';
+import Scheduler from '../components/Scheduler';
+import { connect } from 'react-redux';
 
 const displayMessage =
   'The React Redux Boilerplate is running successfully!';
@@ -9,11 +11,12 @@ class App extends React.Component {
     return (
       <div>
         <p>{displayMessage}</p>
+        <Scheduler></Scheduler>
       </div>
     );
   }
 };
-
+/*
 /* Equivalent function component! */
 // const App = (/* props OR { prop1, prop2 } */) => (
 //    <div>
@@ -40,6 +43,16 @@ class App extends React.Component {
 //    someDispProp: /* some function that dispatches an action */
 // });
 //
-// App = connect(mapStateToProps, mapDispatchToProps)(App);
+// App = connect(mapStateToProps, mapDispatchToProps)(App);*/}
 
+const mapStateToProps = (state) => ({
+  //  someStateProp: /* state.something typically */
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  //  someDispProp: /* some function that dispatches an action */
+});
+
+
+App=connect(mapStateToProps, mapDispatchToProps)(App);
 export default App;
