@@ -1,16 +1,39 @@
 import React from 'react';
 import Hour from './Hour';
 
-
-class Week extends React.Component {
-  render() {
-    return (
-      <div>
-        <Hour></Hour>
-      </div>
-    );
-  }
-};
+let Week = ({ appointments, openModal}) => {
+  return (
+     <div>
+       <h1>Day 1: </h1>
+       {appointments.map((appt) => (
+         <Hour
+           key={appt.id} openModal={(id) => openModal(id)}
+           appt={appt}
+           ></Hour>))}
+     </div>
+  );
+}
 
 
 export default Week;
+
+
+
+
+
+
+
+
+
+
+
+
+// class Week extends React.Component {
+//   render() {
+//     return (
+//       <div>
+//         <Hour></Hour>
+//       </div>
+//     );
+//   }
+// };

@@ -1,0 +1,23 @@
+.available {
+  background-color: skyblue;
+  width: 200px;
+  height: 50px;
+  border: 1px solid black;
+}
+
+.booked {
+  background-color: red;
+  width: 200px;
+  height: 50px;
+  border: 1px solid black;
+}
+
+.modalClass {
+  width: 400px;
+  height: 300px;
+  background-color: 'blue';
+}
+
+body {
+  background-color: white;
+}
