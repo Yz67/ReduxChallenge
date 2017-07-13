@@ -1,4 +1,6 @@
 import React from 'react';
+import ModalClass from './Modal';
+import Week from './Week';
 
 const displayMessage =
   'The React Redux Boilerplate is running successfully!';
@@ -8,16 +10,19 @@ class App extends React.Component {
   render() {
     return (
       <div>
+        <Week />
         <p>{displayMessage}</p>
       </div>
     );
   }
 };
 
+
 /* Equivalent function component! */
-// const App = (/* props OR { prop1, prop2 } */) => (
+// const App = () => (
 //    <div>
-//      <p>{displayMessage}</p>
+//       <ModalClass />
+//       {displayMessage}
 //    </div>
 // );
 
