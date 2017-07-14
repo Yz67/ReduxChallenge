@@ -1,17 +1,32 @@
+// import PropTypes from 'prop-types';
 import React from 'react';
+import { connect } from 'react-redux';
+import TimeSlotContainer from '../components/TimeSlotContainer';
 
-const displayMessage =
-  'The React Redux Boilerplate is running successfully!';
+
+// const displayMessage = 'The React Redux Boilerplate is running successfully!';
 
 // class component
-class App extends React.Component {
-  render() {
-    return (
-      <div>
-        <p>{displayMessage}</p>
-      </div>
-    );
-  }
+class Scheduler extends React.Component {
+    render() {
+        return (
+            <div>
+                <TimeSlotContainer />
+            </div>
+        );
+    }
+}
+
+const mapStateToProps = (state) => {
+    return {
+        wordList: state.wordList
+    };
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        onStartGame: () => dispatch({})
+    };
 };
 
 /* Equivalent function component! */
@@ -42,4 +57,7 @@ class App extends React.Component {
 //
 // App = connect(mapStateToProps, mapDispatchToProps)(App);
 
-export default App;
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Scheduler);
