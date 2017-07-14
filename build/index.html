@@ -1,10 +1,53 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <title>Boilerplate for Redux</title>
 </head>
+
 <body>
-  <div id='root'></div>
-  <script type="text/javascript" src="/app.bundle.js"></script></body>
+    <div id='root'></div>
+    <script type="text/javascript" src="/app.bundle.js"></script>
 </body>
+</body>
+<style>
+    .timestamp {
+        border: 2px solid black;
+        flex: 1;
+    }
+    .open {
+        background-color: greenyellow;
+    }
+
+    .closed {
+        background-color: orangered;
+    }
+    .Day {
+        display: flex;
+        flex-direction: row;
+    }
+    .Modal {
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        background-color: lightblue;
+    }
+    .blocker {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        opacity: 0.5;
+        background-color: black;
+    }
+    .modal-display {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
+
 </html>
