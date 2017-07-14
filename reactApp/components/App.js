@@ -3,12 +3,15 @@ import Week from './Week';
 import { connect } from 'react-redux';
 import Modal from 'react-modal';
 
-let App = ({appointments, saveModal, modal, addCall, toggleModal, updateModalText, updateModalNumber}) => {
+let App = ({appointments, closeModal, clearAppointment, saveModal, modal, addCall, openModal, updateModalText, updateModalNumber}) => {
+  // console.log("this is modal modifier", modal.modifier);
+  // console.log(appointments[modal.modifier].text);
+  // console.log("this is appts", appointments);
 
   return (
      <div>
        <h1>Phone Call Calendar</h1>
-       {console.log("this is modal", modal)}
+       {/* {console.log("this is modal", modal)} */}
        <Modal
           className="modalClass"
           isOpen={modal.open}
@@ -17,7 +20,7 @@ let App = ({appointments, saveModal, modal, addCall, toggleModal, updateModalTex
           <input
             type="text"
             placeholder="Name..."
-            value={.inputText}
+            value={modal.inputText}
             onChange={(event) => updateModalText(event)}
             // onChange={(event) => this.handleChange(event)}
             // value={this.state.task}
@@ -30,12 +33,20 @@ let App = ({appointments, saveModal, modal, addCall, toggleModal, updateModalTex
             // value={this.state.task}
           />
           <button
-            onClick={() => saveModal()}>
+            onClick={() => saveModal(modal.modifier)}>
             Save appointment
+          </button>
+          <button
+            onClick={() => clearAppointment(modal.modifier)}>
+            Cancel appointment
+          </button>
+          <button
+            onClick={() => closeModal()}>
+            Close Window
           </button>
        </Modal>
        <Week
-         openModal={(id) => toggleModal(id)}
+         openModal={(id) => openModal(id)}
          appointments={appointments}></Week>
      </div>
   );
@@ -52,8 +63,8 @@ const mapDispatchToProps = (dispatch) => ({
   //   //  dispatch({id: id, type: "ADD_CALL"}),
   //    dispatch({type: "TOGGLE_MODAL"})
   //  },
-   toggleModal: (id) => {
-     dispatch({id: id, type: "TOGGLE_MODAL"})
+   openModal: (id) => {
+     dispatch({id: id, type: "OPEN_MODAL"})
    },
    updateModalText: (event) => {
      dispatch({type: "UPDATE_MODAL_TEXT", event: event})
@@ -61,9 +72,16 @@ const mapDispatchToProps = (dispatch) => ({
    updateModalNumber: (event) => {
      dispatch({type: "UPDATE_MODAL_NUMBER", event: event})
    },
-   saveModal: () => {
+   saveModal: (id) => {
      dispatch({type: "SAVE_MODAL"}),
-     dispatch({type: "TOGGLE_MODAL"})
+     dispatch({type: "CLOSE_MODAL"})
+   },
+   clearAppointment: (id) => {
+     dispatch({id: id, type: "CANCEL_APPOINTMENT"}),
+     dispatch({type: "CLOSE_MODAL"})
+   },
+   closeModal: () => {
+     dispatch({type: "CLOSE_MODAL"})
    }
 });
 

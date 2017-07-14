@@ -6,7 +6,9 @@ let Hour = ({appt, addCall, openModal}) => {
      <div
       //  onclick={() => openModal()}
        onClick={() => openModal(appt.id)}
-       className={appt.class}>{appt.text} {appt.number}
+       className={appt.class}>
+        {/* {appt.text} {appt.number} */}
+       {appt.text ? <div>{appt.text}{appt.number}</div> : <div>available</div>}
      </div>
   );
 }

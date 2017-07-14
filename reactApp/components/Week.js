@@ -5,10 +5,10 @@ let Week = ({ appointments, openModal}) => {
   return (
      <div>
        <h1>Day 1: </h1>
-       {appointments.map((appt) => (
+       {appointments.map((obj) => (
          <Hour
-           key={appt.id} openModal={(id) => openModal(id)}
-           appt={appt}
+           key={obj.id} openModal={(id) => openModal(id)}
+           appt={obj}
            ></Hour>))}
      </div>
   );
