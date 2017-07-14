@@ -30,13 +30,15 @@ class Timeslot extends React.Component {
     //   }
     return (
       <div className='timeslot'>
-          <div className='time'>{this.props.time}</div>
+          {/* <div className='time'>{this.props.time}</div> */}
+          {/* {this.props.day === 'Monday' ? <div className='time'>{this.props.time}</div> : null} */}
           <div className={this.props.occupied ? 'timeslotinfo occupied' : 'timeslotinfo open'}
               onClick={() => this.props.toggleModal(
                   {time: this.props.time,
                       firstName: this.props.info.firstName,
                       lastName: this.props.info.lastName,
-                      number: this.props.info.number
+                      number: this.props.info.number,
+                      day: this.props.day
                   })}
           >
               {this.props.occupied ?
@@ -63,7 +65,7 @@ class Timeslot extends React.Component {
               <button onClick={this.props.toggleModal}>close</button>
           </Modal> */}
           <ScheduleForm
-              onModalSubmit={() => this.props.onModalSubmit(values, time)}
+              day={this.props.day}
               enableReinitialize={true}
               isOpen={this.props.modalOpen}
               onClose={() => this.props.onModalClose()}

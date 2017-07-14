@@ -12,7 +12,7 @@ const customStyles = {
     left              : 0,
     right             : 0,
     bottom            : 0,
-    backgroundColor   : 'rgba(37, 37, 37, 0.38)'
+    backgroundColor   : 'rgba(37, 37, 37, 0.18)'
   },
   content : {
     top                   : '50%',
@@ -25,11 +25,10 @@ const customStyles = {
 };
 // const App = (/* props OR { prop1, prop2 } */) => (
 let ScheduleForm = props => {
-  const { handleSubmit, isOpen, onClose, time, info} = props
+  const { handleSubmit, isOpen, onClose} = props
   return (
       <Modal
           isOpen={isOpen}
-          onAfterOpen={() => {console.log('afteropencalled');}}
           onRequestClose={onClose}
           style={customStyles}
           contentLabel="Modal"
@@ -39,6 +38,10 @@ let ScheduleForm = props => {
               <div>
                   <label htmlFor="time">Time</label>
                   <Field name="time" component="input" type="number" disabled={true} />
+              </div>
+              <div>
+                  <label htmlFor="day">Day</label>
+                  <Field name="day" component="input" type="text" disabled={true} />
               </div>
               <div>
                   <label htmlFor="firstName">First Name</label>

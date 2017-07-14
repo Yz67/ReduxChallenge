@@ -10,7 +10,7 @@ const rootReducer = combineReducers({
   // for custom keys look up the docs for 'getFormState'
   modalOpen: modalReducer,
   initialFormValues: modalLoadReducer,
-  timeslots: timeslotsReducer,
+  week: timeslotsReducer,
   form: formReducer
 })
 

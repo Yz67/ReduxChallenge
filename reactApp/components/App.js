@@ -12,19 +12,40 @@ const displayMessage =
 class App extends React.Component {
     constructor(props) {
         super(props);
-        console.log(this.props.timeslots);
+        // console.log(typeof ["Monday", "Tuesday", "Wednesday", "Thursday"])
+        // console.log(this.props.timeslots);
         // console.log(props.onTimeslotClick);
     }
   render() {
+    //   const daysofweek = ["Monday", "Tuesday", "Wednesday", "Thursday"];
     return (
-      <div>
-          <TimeslotList
+      <div className="container">
+          <div className="timeColumn">
+              {['9:00','10:00','11:00','12:00','1:00','2:00','3:00','4:00','5:00'].map( (time) => <div className='time'>{time}</div>)}
+          </div>
+          <div className="week">
+              {Object.keys(this.props.week).map( (day) => (
+                  <div className="day">
+                      <div className="dayHeading">{day}</div>
+                      <TimeslotList
+                          day={day}
+                          key={day}
+                          timeslots={this.props.week[day]}
+                          toggleModal={(data) => this.props.onToggleModal(data)}
+                          modalOpen={this.props.modalOpen}
+                          onModalClose={() => this.props.onModalClose()}
+                          onModalSubmit={(values, time) => this.props.onModalSubmit(values, time)}
+                      />
+                  </div>
+              ))}
+          </div>
+          {/* <TimeslotList
               timeslots={this.props.timeslots}
               toggleModal={(data) => this.props.onToggleModal(data)}
               modalOpen={this.props.modalOpen}
               onModalClose={() => this.props.onModalClose()}
               onModalSubmit={(values, time) => this.props.onModalSubmit(values, time)}
-          />
+          /> */}
       </div>
     );
   }
@@ -54,7 +75,7 @@ class App extends React.Component {
 // /* At bottom of file: */
 const mapStateToProps = (state) => ({
    modalOpen: state.modalOpen,
-   timeslots: state.timeslots
+   week: state.week
 });
 //
 const mapDispatchToProps = (dispatch) => ({
