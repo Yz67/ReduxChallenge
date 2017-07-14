@@ -10,10 +10,11 @@ let Slot = ({scheduled, hour,  onOpenModal, name, phone}) => {
           style = {styleScheduled}
           onClick={ () => onOpenModal(hour)}>
 
-            <div>{hour + ':00'}</div>
-            <div>{name}</div>
-            <div>{phone}</div>
-
+          <div style={{textAlign: 'left'}}>
+            <div style ={{display: 'inline-block'}}>{hour + ':00 meeting with ' + name + ' [' + phone + ']'}</div>
+            {/* <div style ={{display: 'inline-block'}}>{name}</div>
+            <div style ={{display: 'inline-block'}}>{phone}</div> */}
+          </div>
 
         </div>
 
@@ -24,9 +25,11 @@ let Slot = ({scheduled, hour,  onOpenModal, name, phone}) => {
           style = {styleNotScheduled}
           onClick={ () => onOpenModal(hour)}>
 
-            <div>{hour + ':00'}</div>
-            <div>{name}</div>
-            <div>{phone}</div>
+          <div >
+              <div style ={{display: 'inline-block'}}>{hour + ':00'}</div>
+              <div style ={{display: 'inline-block'}}>{name}</div>
+              <div style ={{display: 'inline-block'}}>{phone}</div>
+          </div>
 
         </div>
 
@@ -40,14 +43,16 @@ const styleScheduled = {
   backgroundColor: '#f3a8a8',
   margin: 10,
   padding: 10,
-  borderRadius: 4
+  borderRadius: 4,
+  // display: 'inline'
 }
 
 const styleNotScheduled = {
   backgroundColor: '#a5f7a5',
   margin: 10,
   padding: 10,
-  borderRadius: 4
+  borderRadius: 4,
+  // display: 'inline'
 }
 
 

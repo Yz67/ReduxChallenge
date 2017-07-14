@@ -33,8 +33,10 @@ let App = ({timeSlots, modalIsOpen, onOpenModal, idModal, onCloseModal, onNameCh
        </div>
 
        <div style = {hf}>
-         <p>NOTES</p>
-         <p style = {{height: 80, backgroundColor: 'white', borderRadius: 4}}contentEditable="true"></p>
+         <div style = {{textAlign: "left"}}>
+           <p>NOTES</p>
+           <p style = {{height: 80, backgroundColor: 'white', borderRadius: 4}}contentEditable="true"></p>
+         </div>
        </div>
 
        <Modal
