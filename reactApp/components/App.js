@@ -1,14 +1,27 @@
 import React from 'react';
-
-const displayMessage =
-  'The React Redux Boilerplate is running successfully!';
+import Day from './Day';
+import ModalComp from './ModalComp';
 
 // class component
+const styles = {
+    body: {
+        backgroundColor: '#FFFFFF',
+        fontFamily: 'Avenir',
+        color: 'black',
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        textAlign: 'center'
+    }
+}
+
 class App extends React.Component {
   render() {
     return (
-      <div>
-        <p>{displayMessage}</p>
+      <div style={styles.body}>
+          {['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'].map((day) => {
+              return <Day day={day} key={day}/>
+          })}
       </div>
     );
   }

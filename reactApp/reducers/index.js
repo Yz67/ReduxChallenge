@@ -1,14 +1,11 @@
 import { routerReducer } from 'react-router-redux';
 import { combineReducers } from 'redux';
-import { wordListReducer, gameTimeReducer, userInputReducer } from './gameReducer';
+import { mainReducer } from './mainReducer';
 // import gameTimeReducer from './gameReducer';
 // import * as types from '../actions/types';
 
 const rootReducer = combineReducers({
-    routing: routerReducer,
-    wordList: wordListReducer,
-    gameTime: gameTimeReducer,
-    userInput: userInputReducer
+    main: mainReducer,
 });
 
 export default rootReducer;
