@@ -1,18 +1,19 @@
 import React from 'react';
+import ScheduleContainer from './Schedule';
 
 const displayMessage =
   'The React Redux Boilerplate is running successfully!';
 
 // class component
-class App extends React.Component {
-  render() {
-    return (
-      <div>
-        <p>{displayMessage}</p>
-      </div>
-    );
-  }
-};
+// class App extends React.Component {
+//   render() {
+//     return (
+//       <div>
+//         <p>{displayMessage}</p>
+//       </div>
+//     );
+//   }
+// };
 
 /* Equivalent function component! */
 // const App = (/* props OR { prop1, prop2 } */) => (
@@ -21,6 +22,11 @@ class App extends React.Component {
 //    </div>
 // );
 
+const App = () => (
+   <div>
+     <ScheduleContainer />
+   </div>
+);
 
 /*
 ==========================================================
