@@ -10,55 +10,69 @@ class Schedule extends React.Component {
   render() {
     return (
       <div>
-        <div style={{
-          display: 'flex',
-          }}>
-          {this.props.schedule.map(day => (
-            <div key={day.name} style={{
-                flex: '1',
-                display: 'flex',
-                flexDirection: 'column',
-              }}>
-              <div style={{
-                  background: 'lightgrey',
-                  margin: 2
+        <center>
+          <h1 style={{
+            'fontFamily': 'Trebuchet MS'
+          }}>Phone Call Scheduler</h1>
+          <div style={{
+            'display': 'flex',
+            'width': '80%'
+            }}>
+            {this.props.schedule.map(day => (
+              <div key={day.name} style={{
+                  flex: '1',
+                  display: 'flex',
+                  flexDirection: 'column',
                 }}>
-                <center>{day.name}</center>
-              </div>
-              {day.timeSlots.map(timeSlot => (
-                <button key={timeSlot.hour} style={{
-                    background: timeSlot.available ? 'lightblue' : 'pink',
-                    height: 40,
-                    border: '1px solid',
-                    borderRadius: 5,
+                <div style={{
+                    background: 'lightgrey',
                     margin: 2
-                  }} onClick={() => this.props.timeSlotClick(day.name, timeSlot.hour)}>
-                  {timeSlot.hour}
-                </button>
-              ))}
-            </div>
-          ))}
-        </div>
+                  }}>
+                  <center>{day.name}</center>
+                </div>
+                {day.timeSlots.map(timeSlot => (
+                  <button key={timeSlot.hour} style={{
+                      background: timeSlot.available ? 'lightblue' : 'pink',
+                      height: 60,
+                      border: '1px solid',
+                      borderRadius: 5,
+                      margin: 2
+                    }} onClick={() => this.props.timeSlotClick(day.name, timeSlot.hour)}>
+                    {timeSlot.hour}
+                  </button>
+                ))}
+              </div>
+            ))}
+          </div>
+        </center>
         <Modal isOpen={this.props.modal.isOpen} contentLabel={"Modal"}>
-          <h1>Ayyy</h1>
-          Must be the monayyy <br/>
-          <form>
-            <label>Name: </label>
-            <input type='text' value={this.props.modal.name}
-              onChange={e => this.props.handleNameChange(e.target.value)} /><br/>
-            <label>Phone Number: </label>
-            <input type='text' value={this.props.modal.phoneNumber}
-              onChange={e => this.props.handlePhoneNumberChange(e.target.value)} /><br/>
-            <button onClick={(e) => this.props.handleSubmit(e)}>Submit</button>
-            <button onClick={(e) => this.props.handleCancel(e)}>Cancel</button>
-          </form>
-          Did you ever hear the tragedy of Darth Plagueis The Wise? I thought not. It’s not a story the Jedi would tell you.
-          It’s a Sith legend. Darth Plagueis was a Dark Lord of the Sith, so powerful and so wise he could use the Force to
-          influence the midichlorians to create life… He had such a knowledge of the dark side that he could even keep the
-          ones he cared about from dying. The dark side of the Force is a pathway to many abilities some consider to be
-          unnatural. He became so powerful… the only thing he was afraid of was losing his power, which eventually, of course,
-          he did. Unfortunately, he taught his apprentice everything he knew, then his apprentice killed him in his sleep.
-          Ironic. He could save others from death, but not himself.
+          <center>
+            <h2>Please enter the person's name and phone number</h2>
+            <form>
+              <label style={{
+                'display': 'inline-block',
+                'width': '110px'
+              }}>Name: </label>
+              <input type='text' value={this.props.modal.name}
+                onChange={e => this.props.handleNameChange(e.target.value)} /><br/>
+              <label style={{
+                'display': 'inline-block',
+                'width': '110px'
+              }}>Phone Number: </label>
+              <input type='text' value={this.props.modal.phoneNumber}
+                onChange={e => this.props.handlePhoneNumberChange(e.target.value)} /><br/><br/>
+              <button onClick={(e) => this.props.handleSubmit(e)}>Submit</button>
+              <button onClick={(e) => this.props.handleCancel(e)}>Cancel</button>
+            </form>
+            <br/>
+          </center>
+            Did you ever hear the tragedy of Darth Plagueis The Wise? I thought not. It’s not a story the Jedi would tell you.
+            It’s a Sith legend. Darth Plagueis was a Dark Lord of the Sith, so powerful and so wise he could use the Force to
+            influence the midichlorians to create life… He had such a knowledge of the dark side that he could even keep the
+            ones he cared about from dying. The dark side of the Force is a pathway to many abilities some consider to be
+            unnatural. He became so powerful… the only thing he was afraid of was losing his power, which eventually, of course,
+            he did. Unfortunately, he taught his apprentice everything he knew, then his apprentice killed him in his sleep.
+            Ironic. He could save others from death, but not himself.
         </Modal>
       </div>
     );
