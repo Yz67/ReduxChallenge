@@ -1,15 +1,32 @@
-# Redux Take Home Challenge
+# React Takehome App: Scheduler
 
-This is an assignment intended to be completed individually and with as little help form the TA's as you can manage.
+## Functionality Overview
+Per the assignment specs, the app contained within this repo:
 
-This assignment was a real coding challenge presented to a former Horizons student as part of an interview process with a tech company, except the assignment was to use Flux instead of Redux.
+1. Lists 8 timeslots for appointments on a specific date
+2. The timeslots display whether or not there is an         appointment in that timeslot
 
-## Your Task
+    * If there is no appointment, the timeslot will be colored green and labelled "open"
 
-You are meant to implement an interactive phone call scheduler using React and Redux. There should be several 1 hour time slots in a given day between 9 and 5. When the app first starts, these time slots are all open. When clicking any time slot, a modal should open that enables the user to enter a name and phone number of the person with whom they are scheduling a phone call during that time slot. Upon submitting the modal, that time slot should visibly change color and update to display the information just entered. Clicking the same slot again should open the same modal, but with its input fields already populated with the information already given to that time slot. This should allow the user to easily fix a typo and resubmit, saving the updated information. The ultimate goal would be to have a week's worth of days where each day has 8 hour long time slots between 9 and 5, but just getting one day working would be acceptable. You should also do your best to make the app as presentable as possible, looks matter to both employers and clients!
+    * If there is an appointment, the timeslot will be colored blue and labelled with the
+    name of the person who made the appointment
+3. Clicking on an appointment:
+    * if there is no appointment, opens a modal that allows an appointment to be made, checking
+    that the fields for name and phone number are _not_ empty (submission of an empty form
+    will flash an error and users can cancel out of the modal to leave the timeslot unchanged)
 
-## Go get 'em
+    * if there is an appointment, opens a modal populated with the current information of the
+    person who made the appointment, allowing for editing (an option to clear the timeslot
+    of its appointment is available)
 
-You have been provided with a boilerplate that has React and Redux set up. You have ALSO been provided with materials intended to provide enough guidance for you to be able to write the boilerplate yourself from scratch if you want to: [This new set up writeup](SETUP.md) and the [React From Scratch writeup](https://github.com/horizons-school-of-technology/week05/blob/master/day5/full-stack-react.md) you encountered a few weeks ago.
+4. Users can navigate in a 7 day period (default starting from today's date, there is an option
+        to set what the beginning of this period is)
 
-You haven't yet used modals in React. It's quite common that a coding challenge would have at least one thing that is new to you. Your first step would be to google it, which would probably land you at [this npm package](https://www.npmjs.com/package/react-modal) pretty quickly.
+
+## Design Choices
+In line with some of the remarks made [here](https://gist.github.com/chantastic/fc9e3853464dffdb1e3c),
+I've decided to _completely_ separate the so called `presentational components` and `container components`.
+I've included a flowchart with arrows pointing from parent to child components marking presentational components
+as circles and container components as squares.
+
+![design flowchart](/img/ReactReduxTakehome.png)

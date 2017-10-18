@@ -1,29 +1,22 @@
-const webpack = require('webpack');
-
+const path = require('path');
 
 module.exports = {
-  entry: './reactApp/app.js',
-  output: {
-    path: __dirname + '/build',
-    filename: 'app.bundle.js'
-  },
-  module: {
-    rules: [
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['es2015', 'react'],
-            plugins: ['transform-object-rest-spread']
-          }
-        }
-      }
-    ]
-  },
-  stats: {
-    colors: true
-  },
-  devtool: 'source-map'
+    entry: './app/app.js',
+    output: {
+        path: path.resolve(__dirname, 'build'),
+        filename: 'app.bundle.js',
+    },
+    module: {
+        loaders: [{
+            test: /\.js$/,
+            loader: 'babel-loader',
+            query: {
+                presets: ['es2015', 'react'],
+            },
+        }],
+    },
+    stats: {
+        colors: true,
+    },
+    devtool: 'source-map',
 };

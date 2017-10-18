@@ -1,28 +1,47 @@
 {
-  "name": "reduxchallenge",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "redux_challenge-horizons_fall_2017-masonliyu",
+  "version": "0.0.1",
+  "description": "A scheduler takehome build with React and using Redux",
+  "main": "build/app.js",
   "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
     "webpack": "webpack",
     "start": "webpack-dev-server --content-base build/"
   },
-  "author": "",
-  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/horizons-school-of-technology/reduxchallenge.git"
+  },
+  "keywords": [
+    "takehome",
+    "practice",
+    "react",
+    "redux",
+    "react-redux",
+    "scheduler"
+  ],
+  "author": "masonliyu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/horizons-school-of-technology/reduxchallenge/issues"
+  },
+  "homepage": "https://github.com/horizons-school-of-technology/reduxchallenge#readme",
   "dependencies": {
-    "babel-core": "^6.24.1",
-    "babel-loader": "^7.0.0",
-    "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
-    "html-webpack-plugin": "^2.28.0",
-    "react": "^15.5.4",
-    "react-dom": "^15.5.4",
-    "react-redux": "^5.0.5",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "react-redux": "^5.0.6",
     "redux": "^3.7.2",
-    "webpack": "^2.6.1"
+    "webpack": "^3.8.1"
   },
   "devDependencies": {
-    "webpack-dev-server": "^2.4.5"
+    "eslint": "^4.9.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-react": "^7.4.0"
   }
 }
