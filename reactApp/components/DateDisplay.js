@@ -1,12 +1,57 @@
 import React from 'react';
-
+function returnMonth(month) {
+  switch (month) {
+    case 0:
+      month = 'Jan'
+      return month;
+    case 1:
+      month = 'Feb';
+      return month;
+    case 2:
+      month = 'Mar';
+      return month;
+    case 3:
+      month = 'Apr';
+      return month;
+    case 4:
+      month = 'May';
+      return month
+    case 5:
+      month = 'Jun';
+      return month;
+    case 6:
+      month = 'Jul';
+      return month;
+    case 7:
+      month = 'Aug';
+      return month;
+    case 8:
+      month ='Sep';
+      return month;
+    case 9:
+      month = 'Oct';
+      return month;
+    case 10:
+      month = 'Nov';
+      return month;
+    case 11:
+      month = 'Dec';
+    default:
+      return month;
+  }
+}
 const DateDisplay = () => {
   const today = new Date();
   const day = today.getDay();
   const dayOfMonth = today.getDate();
   const month = today.getMonth();
-  var actualDay;
-  var actualMonth;
+  let actualDay;
+  let actualMonth = returnMonth(month);
+
+  const weekAhead = today;
+  weekAhead.setDate(weekAhead.getDate() + 7);
+  let nextMonth = weekAhead.getMonth();
+  nextMonth = returnMonth(nextMonth);
   switch (day) {
     case 0:
       actualDay = 'Sunday'
@@ -33,48 +78,12 @@ const DateDisplay = () => {
       break;
   }
 
-  switch (month) {
-    case 0:
-      actualMonth = 'Jan'
-      break;
-    case 1:
-      actualMonth = 'Feb';
-      break;
-    case 2:
-      actualMonth = 'Mar';
-      break;
-    case 3:
-      actualMonth = 'Apr';
-      break;
-    case 4:
-      actualMonth = 'May';
-      break;
-    case 5:
-      actualMonth = 'Jun';
-      break;
-    case 6:
-      actualMonth = 'Jul';
-      break;
-    case 7:
-      actualMonth = 'Aug';
-      break;
-    case 8:
-      actualMonth ='Sep';
-      break;
-    case 9:
-      actualMonth = 'Oct';
-      break;
-    case 10:
-      actualMonth = 'Nov';
-      break;
-    case 11:
-      actualMonth = 'Dec';
-    default:
-      break;
-  }
-  const nextWeek = dayOfMonth + 7;
-  const displayMessage = 'Schedule calls from ' + actualDay + ', ' + dayOfMonth + 'th - ' + actualDay + ', ' + nextWeek + ' ' +actualMonth;
+  const nextWeek = weekAhead.getDate();
 
+  let displayMessage = 'Schedule calls from ' + actualDay + ', ' + dayOfMonth + 'th - ' + actualDay + ', ' + nextWeek + ' ' + actualMonth;
+  if(actualMonth !== nextMonth) {
+    displayMessage ='Schedule calls from ' + actualDay + ', ' + dayOfMonth + 'th' + ' ' + actualMonth + ' - ' + actualDay + ', ' + nextWeek + ' ' +nextMonth;
+  }
   return (
     <div className = "text-center" >
       <h4 style={{color: 'white'}}>{displayMessage}</h4>

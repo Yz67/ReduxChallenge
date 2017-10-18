@@ -81,7 +81,6 @@ render(){
       </form>
   </Modal>
       {this.props.appointments.map((appoint, index) => {
-        console.log("appoint", appoint);
         if(appoint.phoneNumber) {
           return (
                 <div key={index} onClick ={() => this.openModal(index)} style={{color: 'white', cursor: 'pointer', height: '64px', borderBottom: '1px solid grey', padding: '5px', backgroundColor: 'mediumseagreen'}}>

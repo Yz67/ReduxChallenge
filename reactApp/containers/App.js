@@ -13,6 +13,7 @@ class App extends React.Component {
     const dayDiff = Math.round((this.props.selectedDate - today)/ (1000*60*60*24));
     return (
       <div className="jumbotron" style={{width: '100%', backgroundColor: 'dodgerblue', position: 'absolute', marginBottom: '0'}}>
+        <h1 style={{textAlign:'center', color: 'springgreen', marginTop: '0px',fontFamily: 'Helvetica Neue', marginBottom: '30px'}}> <i className="fa fa-phone-square" aria-hidden="true"></i> Schedule.io</h1>
         <DateDisplay />
         <DateList onClick= {this.props.changeDate} date={this.props.selectedDate} />
         <AppointmentDisplay onSubmit={this.props.setAppointment} appointments={this.props.appointments[dayDiff]}/>
