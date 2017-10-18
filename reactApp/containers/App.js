@@ -16,7 +16,7 @@ class App extends React.Component {
         <h1 style={{textAlign:'center', color: 'springgreen', marginTop: '0px',fontFamily: 'Futura', marginBottom: '30px'}}> <i style={{fontSize: '40px'}} className="fa fa-calendar-check-o" aria-hidden="true"></i> Schedule.io</h1>
         <DateDisplay />
         <DateList onClick= {this.props.changeDate} date={this.props.selectedDate} />
-        <AppointmentDisplay onSubmit={this.props.setAppointment} appointments={this.props.appointments[dayDiff]}/>
+        <AppointmentDisplay removeEvent ={this.props.removeEvent} onSubmit={this.props.setAppointment} appointments={this.props.appointments[dayDiff]}/>
       </div>
     );
   }
@@ -47,7 +47,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
    changeDate: (index) => dispatch({type: "CHANGE_DATE", dateDifference: index}),
-   setAppointment: (appointmentIndex, phoneNumber, contactName, topic) => dispatch({type: 'SET_APPOINTMENT', appointmentIndex, phoneNumber, contactName, topic})
+   setAppointment: (appointmentIndex, phoneNumber, contactName, topic) => dispatch({type: 'SET_APPOINTMENT', appointmentIndex, phoneNumber, contactName, topic}),
+   removeEvent: (appointmentIndex) => dispatch({type: 'REMOVE_APPOINTMENT', appointmentIndex})
 });
 //
 // App = connect(mapStateToProps, mapDispatchToProps)(App);

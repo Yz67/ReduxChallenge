@@ -26,7 +26,6 @@ const dateReducer = (state = defaultState, action) => {
         newState.selectedDate = newDate;
         return newState;
       case 'SET_APPOINTMENT':
-        console.log("ACTION", action);
         const anotherState = {...state};
         const newAppointments = [...anotherState.appointments];
         const today = new Date();
@@ -39,6 +38,19 @@ const dateReducer = (state = defaultState, action) => {
 
         anotherState.appointments = newAppointments;
         return anotherState;
+      case 'REMOVE_APPOINTMENT':
+        console.log("ACTION", action);
+        const anotherState2 = {...state};
+        const newAppointments2 = [...anotherState2.appointments];
+        const today2 = new Date();
+        const dayIndex2 = Math.round((state.selectedDate - today2)/ (1000*60*60*24));
+        newAppointments2[dayIndex2][action.appointmentIndex] = {
+          name: '',
+          phoneNumber: null,
+          topic: ''
+        }
+        anotherState2.appointments = newAppointments2;
+        return anotherState2;
       default:
         return state;
     }

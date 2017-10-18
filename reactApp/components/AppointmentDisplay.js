@@ -9,8 +9,8 @@ class AppointmentDisplay extends React.Component {
       selectedIndex: 0,
       phoneNumber: '',
       contactName: '',
-      topic: ''
-
+      topic: '',
+      showRemove: false
     }
 
     this.openModal = this.openModal.bind(this);
@@ -85,10 +85,22 @@ render(){
       {this.props.appointments.map((appoint, index) => {
         if(appoint.phoneNumber) {
           return (
-                <div key={index} onClick ={() => this.openModal(index)} style={{color: 'white', cursor: 'pointer', height: '64px', borderBottom: '1px solid grey', padding: '5px', backgroundColor: 'mediumseagreen'}}>
+                <div
+                  className="booked-element"
+                  onMouseEnter={() => this.setState({ showRemove: true })}
+                  onMouseLeave={() => this.setState({ showRemove: false })}
+                  key={index}
+                  onClick ={() => this.openModal(index)}
+                  style={{color: 'white', cursor: 'pointer', height: '64px', borderBottom: '1px solid grey', padding: '5px', backgroundColor: 'mediumseagreen'}}
+                >
                       {timeArray[index]}
                       <div className="text-center">
+                      {this.state.showRemove ?
+                          <button onClick={(e) => {e.preventDefault(); e.stopPropagation(); this.props.removeEvent(this.state.selectedIndex)}} style={{position: 'absolute', right: '10px', marginTop: '-15px'}} type="button" className="btn btn-raised btn-warning">Remove</button>
+                      : null}
                         <p style={{fontSize: '15px'}}> <i style={{fontSize: '20px', marginRight: '5px'}} className="fa fa-phone-square"></i> Booked with {appoint.name} to discuss {appoint.topic} </p>
+
+
                       </div>
                 </div>
                 )
