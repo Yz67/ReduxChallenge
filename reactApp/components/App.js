@@ -1,5 +1,6 @@
 import React from 'react';
-
+import TimeContainer from './TimeContainer';
+import Day from './Day';
 const displayMessage =
   'The React Redux Boilerplate is running successfully!';
 
@@ -7,8 +8,20 @@ const displayMessage =
 class App extends React.Component {
   render() {
     return (
-      <div>
-        <p>{displayMessage}</p>
+      <div id="main">
+        <div id="header">
+          Header
+        </div>
+        <div id="calendar">
+          <TimeContainer />
+          <Day/>
+          <Day/>
+          <Day/>
+          <Day/>
+          <Day/>
+          <Day/>
+          <Day/>
+        </div>
       </div>
     );
   }

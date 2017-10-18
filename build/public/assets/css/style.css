@@ -1,0 +1,76 @@
+html {
+  height: 100%;
+}
+body {
+  height: 100%;
+  display: flex;
+}
+
+#root {
+  flex: 1;
+  display: flex;
+}
+
+#main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+#header {
+  flex: 1;
+}
+
+#calendar {
+  flex: 8;
+  padding: 0 0 5px 5px;
+  background-color: LightSlateGray;
+  border: 2px solid black;
+  display: flex;
+}
+
+.transparent {
+  background-color: rgba(0,0,0,0);
+}
+
+#time-container {
+  flex: 1;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+#day-container {
+  flex: 2;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+#time-slot-container {
+  flex: 1;
+  margin: 5px 5px 0 0;
+  background-color: White;
+  border: 1px solid LightSlateGray;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#time-label-container {
+  flex: 1;
+  margin: 5px 5px 0 0;
+  background-color: White;
+  border: 1px solid LightSlateGray;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
