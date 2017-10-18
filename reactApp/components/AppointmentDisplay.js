@@ -8,7 +8,8 @@ class AppointmentDisplay extends React.Component {
       modalIsOpen: false,
       selectedIndex: 0,
       phoneNumber: '',
-      contactName: ''
+      contactName: '',
+      topic: ''
 
     }
 
@@ -21,7 +22,7 @@ class AppointmentDisplay extends React.Component {
   openModal(index) {
   this.setState({selectedIndex: index}, () => {
     if(this.props.appointments[index].phoneNumber) {
-      this.setState({modalIsOpen: true, contactName: this.props.appointments[index].name, phoneNumber: this.props.appointments[index].phoneNumber});
+      this.setState({modalIsOpen: true, contactName: this.props.appointments[index].name, phoneNumber: this.props.appointments[index].phoneNumber, topic: this.props.appointments[index].topic});
     } else{
       this.setState({modalIsOpen: true, contactName: '', phoneNumber: ''});
     }
@@ -46,7 +47,7 @@ handleInputChange(event) {
 }
 handleSubmit(e){
   e.preventDefault();
-  this.props.onSubmit(this.state.selectedIndex, this.state.phoneNumber, this.state.contactName);
+  this.props.onSubmit(this.state.selectedIndex, this.state.phoneNumber, this.state.contactName, this.state.topic);
   this.setState({
     modalIsOpen: false
   });
@@ -69,15 +70,16 @@ render(){
 
       <form onSubmit={this.handleSubmit} style={{marginTop: '20px'}}>
         <div className="form-group">
-          <label for="contact-name">Contact Name</label>
           <input onChange= {this.handleInputChange} type="text" className="form-control" name="contactName" id="contact-name" placeholder="Enter name:" value={this.state.contactName}></input>
         </div>
         <div className="form-group">
-          <label for="number">Contact number</label>
           <input onChange= {this.handleInputChange} type="number" className="form-control" id="number" name="phoneNumber" placeholder="Phone Number" value={this.state.phoneNumber}></input>
         </div>
-        <button type="submit" className="btn btn-primary">Submit</button>
-        <button className="btn btn-danger" onClick={this.closeModal}>close</button>
+        <div className="form-group">
+          <input onChange= {this.handleInputChange} type="text" className="form-control" name="topic" placeholder="Topic of discussion:" value={this.state.topic}></input>
+        </div>
+        <button style={{marginTop: '20px'}} type="submit" className="btn btn-primary">Submit</button>
+        <button style={{marginTop: '20px'}} className="btn btn-danger" onClick={this.closeModal}>close</button>
       </form>
   </Modal>
       {this.props.appointments.map((appoint, index) => {
@@ -86,7 +88,7 @@ render(){
                 <div key={index} onClick ={() => this.openModal(index)} style={{color: 'white', cursor: 'pointer', height: '64px', borderBottom: '1px solid grey', padding: '5px', backgroundColor: 'mediumseagreen'}}>
                       {timeArray[index]}
                       <div className="text-center">
-                        <p> Booked with {appoint.name} </p>
+                        <p> Booked with {appoint.name} to discuss {appoint.topic} </p>
                       </div>
                 </div>
                 )

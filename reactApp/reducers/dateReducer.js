@@ -10,7 +10,8 @@ for(var i =0; i < 8;i++){
   for(var j =0; j < 8; j++){
     newArr.push({
       name: '',
-      phoneNumber: null
+      phoneNumber: null,
+      topic: ''
     })
   }
   defaultState.appointments.push(newArr);
@@ -32,7 +33,8 @@ const dateReducer = (state = defaultState, action) => {
         const dayIndex = Math.round((state.selectedDate - today)/ (1000*60*60*24));
         newAppointments[dayIndex][action.appointmentIndex] = {
           name: action.contactName,
-          phoneNumber: action.phoneNumber
+          phoneNumber: action.phoneNumber,
+          topic: action.topic
         };
 
         anotherState.appointments = newAppointments;
