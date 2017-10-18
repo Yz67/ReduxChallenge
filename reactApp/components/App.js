@@ -1,14 +1,18 @@
 import React from 'react';
 
-const displayMessage =
-  'The React Redux Boilerplate is running successfully!';
+// imported components
+import Header from './Header';
+import Body from './Body';
+import Footer from './Footer';
 
 // class component
 class App extends React.Component {
   render() {
     return (
       <div>
-        <p>{displayMessage}</p>
+        <Header />
+        <Body />
+        <Footer />
       </div>
     );
   }
