@@ -24,7 +24,7 @@ class AppointmentDisplay extends React.Component {
     if(this.props.appointments[index].phoneNumber) {
       this.setState({modalIsOpen: true, contactName: this.props.appointments[index].name, phoneNumber: this.props.appointments[index].phoneNumber, topic: this.props.appointments[index].topic});
     } else{
-      this.setState({modalIsOpen: true, contactName: '', phoneNumber: ''});
+      this.setState({modalIsOpen: true, contactName: '', phoneNumber: '', topic: ''});
     }
 
   });
@@ -88,7 +88,7 @@ render(){
                 <div key={index} onClick ={() => this.openModal(index)} style={{color: 'white', cursor: 'pointer', height: '64px', borderBottom: '1px solid grey', padding: '5px', backgroundColor: 'mediumseagreen'}}>
                       {timeArray[index]}
                       <div className="text-center">
-                        <p> Booked with {appoint.name} to discuss {appoint.topic} </p>
+                        <p style={{fontSize: '15px'}}> <i style={{fontSize: '20px', marginRight: '5px'}} className="fa fa-phone-square"></i> Booked with {appoint.name} to discuss {appoint.topic} </p>
                       </div>
                 </div>
                 )
