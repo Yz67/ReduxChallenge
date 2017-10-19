@@ -1,14 +1,20 @@
 html {
   height: 100%;
+  padding: 0;
+  margin: 0;
 }
 body {
   height: 100%;
   display: flex;
+  padding: 0;
+  margin: 0;
 }
 
 #root {
   flex: 1;
   display: flex;
+  background-color: SlateGray;
+  margin: 0;
 }
 
 #main {
@@ -19,13 +25,16 @@ body {
 
 #header {
   flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: White;
 }
 
 #calendar {
   flex: 8;
   padding: 0 0 5px 5px;
   background-color: SlateGray;
-  border: 2px solid black;
   display: flex;
 }
 
@@ -105,4 +114,38 @@ p {
   margin: 0;
   padding: 0;
   text-align: center;
+}
+
+#modalHeader {
+  margin-top: 0;
+}
+
+.modalSpan {
+  width: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.modalLabel {
+  flex: 1;
+}
+
+.modalInput {
+  flex: 3;
+}
+
+.modalButton {
+  flex: 1;
+  border-radius: 0;
+  background-color: rgb(90,150,200);
+  color: White;
+  margin-top: 5px;
+  height: 30px;
+}
+
+.modalButton:hover{
+  background-color: rgb(110,170,220);
 }

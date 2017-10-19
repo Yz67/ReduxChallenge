@@ -9,7 +9,7 @@ const displayMessage =
 var App = ({ days }) => (
       <div id="main">
         <div id="header">
-          Header
+          <h1>Phone Schedule</h1>
         </div>
         <div id="calendar">
           <TimeContainer />

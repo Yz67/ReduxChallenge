@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import React from 'react';
 import Modal from 'react-modal';
 import { updateSlot } from '../../actions/actions';
+import modalStyle from '../../build/public/assets/css/modalStyle';
 
 class TimeSlot extends React.Component {
   constructor(props){
@@ -15,8 +16,7 @@ class TimeSlot extends React.Component {
       hour: hour,
       slot: slot,
       inputName: slot.name,
-      inputPhone: slot.phone,
-      phoneErr: false
+      inputPhone: slot.phone
     }
   }
 
@@ -49,6 +49,14 @@ class TimeSlot extends React.Component {
     });
   }
 
+  handleClear(evt){
+    evt.preventDefault();
+    this.setState({
+      inputName: '',
+      inputPhone: ''
+    });
+  }
+
   handleSubmit(evt){
     evt.preventDefault();
     this.props.submitInfo(this.state.inputName,this.state.inputPhone,this.state.day,this.state.hour);
@@ -64,18 +72,22 @@ class TimeSlot extends React.Component {
           isOpen={this.state.modal}
           /*onAfterOpen={this.afterOpenModal}*/
           /*onRequestClose={requestCloseFn}*/
-          /*style={customStyle}*/
+          style={modalStyle}
           contentLabel="Modal"
           >
-            <h1>Modal Content</h1>
-            <form>
-              <label>Name:</label>
-              <input value={this.state.inputName} onChange={(evt)=>this.updateName(evt.target.value)}/>
-              <label>Phone:</label>
-              <input value={this.state.inputPhone} onChange={(evt)=>this.updatePhone(evt.target.value)}/>
-              {this.state.phoneErr ? <p>Please enter valid 10-digit phone number.</p> : <p></p>}
-              <button onClick={(evt)=>this.handleSubmit(evt)}>OK</button>
-            </form>
+            <h1 id="modalHeader">{this.state.slot.name || this.state.slot.phone ? 'Edit Appointment' : 'New Appointment'}</h1>
+            <span className="modalSpan">
+              <label className="modalLabel">Name:</label>
+              <input className="modalInput" value={this.state.inputName} onChange={(evt)=>this.updateName(evt.target.value)}/>
+            </span>
+            <span className="modalSpan">
+              <label className="modalLabel">Phone:</label>
+              <input className="modalInput" value={this.state.inputPhone} onChange={(evt)=>this.updatePhone(evt.target.value)}/>
+            </span>
+            <span className="modalSpan">
+              <button className="modalButton" onClick={(evt)=>this.handleSubmit(evt)}>Save</button>
+              <button className="modalButton" onClick={(evt)=>this.handleClear(evt)}>Clear</button>
+            </span>
         </Modal>
       </div>
     );
