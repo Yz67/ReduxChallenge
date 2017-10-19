@@ -1,10 +1,14 @@
 import React from 'react';
 
 class TimeLabel extends React.Component {
+  constructor(props){
+    super(props);
+  }
+
   render() {
     return (
       <div id="time-label-container">
-        <p>9 AM</p>
+        <p>{this.props.time}</p>
       </div>
     );
   }
