@@ -57,7 +57,7 @@ render(){
   const timeArray = ['9-10 AM', '10-11 AM', '11AM - Noon', 'Noon - 1PM', '1-2 PM', '2-3 PM', '3-4 PM', '4-5 PM'];
   const {appointments} = this.props;
     return(
-    <div className="card" style={{marginTop: '20px', borderRadius: '5px'}}>
+    <div className="card" style={{marginTop: '20px', borderRadius: '5px', width: '90%', marginLeft: '5%'}}>
     <Modal
       isOpen={this.state.modalIsOpen}
       onAfterOpen={this.afterOpenModal}
