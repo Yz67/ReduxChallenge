@@ -1,13 +1,30 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import {
+  Toolbar,
+  ToolbarGroup,
+  ToolbarTitle,
+} from 'material-ui/Toolbar';
+import RaisedButton from 'material-ui/RaisedButton';
+
+import { clearAll } from '../actions/index';
 
 class Header extends React.Component {
   render() {
     return (
-      <div>
-        <p>Header</p>
-      </div>
+      <Toolbar>
+        <ToolbarGroup>
+          <ToolbarTitle text={'Phone Call Planner'} />
+        </ToolbarGroup>
+      </Toolbar>
     );
   }
 };
 
-export default Header;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onClearAll: () => dispatch(clearAll()),
+  };
+};
+
+export default connect(null, mapDispatchToProps)(Header);

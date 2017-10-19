@@ -6,11 +6,8 @@ import Week from './Week'
 class Body extends React.Component {
   render() {
     return (
-      <div>
-        <p>Body</p>
-        <Week
-          className={'week'}
-        />
+      <div className={'container'}>
+        <Week />
       </div>
     );
   }

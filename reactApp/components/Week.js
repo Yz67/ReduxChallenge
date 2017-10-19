@@ -20,13 +20,11 @@ class Week extends React.Component {
     ]
     return (
       <div>
-        <p>Week</p>
-        <div>
+        <div className={'week'}>
           {weekdays.map(day =>
             <Day
-              className={'day'}
               key={day}
-              style=""
+              day={day}
             />
           )}
         </div>

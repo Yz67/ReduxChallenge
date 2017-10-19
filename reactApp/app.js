@@ -3,15 +3,16 @@ import ReactDOM from 'react-dom';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import App from './components/App';
-/* WHEN YOU ACTUALLY WRITE YOUR REDUCER, FIX THE 2 LINES BELOW */
-// import mainReducer from './reducers/mainReducer'; /*UNCOMMENT*/
-const mainReducer = (state = 5) => state; /*REMOVE*/
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import rootReducer from './reducers/index';
 
-const store = createStore(mainReducer);
+const store = createStore(rootReducer);
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <MuiThemeProvider>
+      <App />
+    </MuiThemeProvider>
   </Provider>,
   document.getElementById('root')
 );

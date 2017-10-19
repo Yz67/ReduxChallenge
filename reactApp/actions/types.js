@@ -1,1 +1,5 @@
-export const EXAMPLE = 'EXAMPLE'
+export const OPEN_MODAL = 'OPEN_MODAL'
+export const CLOSE_MODAL = 'CLOSE_MODAL'
+export const CHANGE_NAME = 'CHANGE_NAME'
+export const CHANGE_NUMBER = 'CHANGE_NUMBER'
+export const CLEAR_ALL = 'CLEAR_ALL'
