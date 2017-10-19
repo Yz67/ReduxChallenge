@@ -87,15 +87,15 @@ render(){
           return (
                 <div
                   className="booked-element"
-                  onMouseEnter={() => this.setState({ showRemove: true })}
-                  onMouseLeave={() => this.setState({ showRemove: false })}
+                  onMouseEnter={() => this.setState({ showRemove: true, selectedIndex: index })}
+                  onMouseLeave={() => this.setState({ showRemove: false, selectedIndex: 0 })}
                   key={index}
                   onClick ={() => this.openModal(index)}
                   style={{color: 'white', cursor: 'pointer', height: '64px', borderBottom: '1px solid grey', padding: '5px', backgroundColor: 'mediumseagreen'}}
                 >
                       {timeArray[index]}
                       <div className="text-center">
-                      {this.state.showRemove ?
+                      {this.state.showRemove && this.state.selectedIndex === index ?
                           <button onClick={(e) => {e.preventDefault(); e.stopPropagation(); this.props.removeEvent(this.state.selectedIndex)}} style={{position: 'absolute', right: '10px', marginTop: '-15px'}} type="button" className="btn btn-raised btn-warning">Remove</button>
                       : null}
                         <p style={{fontSize: '15px'}}> <i style={{fontSize: '20px', marginRight: '5px'}} className="fa fa-phone-square"></i> Booked with {appoint.name} to discuss {appoint.topic} </p>
