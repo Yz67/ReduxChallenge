@@ -1,45 +1,51 @@
 import React from 'react';
+import Day from './Day';
+import Modal from 'react-modal';
+import { connect } from 'react-redux';
 
 const displayMessage =
   'The React Redux Boilerplate is running successfully!';
+
+
 
 // class component
 class App extends React.Component {
   render() {
     return (
       <div>
-        <p>{displayMessage}</p>
+        <Day />
+        <Modal
+          isOpen={this.props.isModalOpen}
+          // onAfterOpen={afterOpenFn}
+          onRequestClose={this.props.closeModal}
+          // closeTimeoutMS={n}
+          // style={customStyle}
+          // contentLabel="Modal"
+        >
+          <h1>Modal Content</h1>
+          <p>Etc.</p>
+          {this.props.selectedTime}
+          <button onClick={() => {
+            this.props.schedule(this.props.selectedTime);
+            this.props.closeModal();
+          }}>SCHEDULE TEST</button>
+        </Modal>
       </div>
     );
   }
 };
 
-/* Equivalent function component! */
-// const App = (/* props OR { prop1, prop2 } */) => (
-//    <div>
-//      <p>{displayMessage}</p>
-//    </div>
-// );
 
+const mapStateToProps = (state) => ({
+   isModalOpen: state.modalOpen !== false,
+   selectedTime: state.modalOpen
+});
 
-/*
-==========================================================
-  This is what you do if you want this component or any
-  other to become a connected "container" component!
-==========================================================
-*/
-// /* At top of file: */
-// import { connect } from 'react-redux';
-//
-// /* At bottom of file: */
-// const mapStateToProps = (state) => ({
-//    someStateProp: /* state.something typically */
-// });
-//
-// const mapDispatchToProps = (dispatch) => ({
-//    someDispProp: /* some function that dispatches an action */
-// });
-//
-// App = connect(mapStateToProps, mapDispatchToProps)(App);
+const mapDispatchToProps = (dispatch) => ({
+   closeModal: () => dispatch({type: "CLOSE_MODAL"}),
+   schedule: (index) => dispatch({ type: "SCHEDULE", index, name: "glenn", phone: 10 })
+});
+
+App = connect(mapStateToProps, mapDispatchToProps)(App);
 
 export default App;
