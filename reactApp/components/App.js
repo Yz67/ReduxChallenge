@@ -1,4 +1,6 @@
 import React from 'react';
+import DayList from './DayList';
+import { connect } from 'react-redux';
 
 const displayMessage =
   'The React Redux Boilerplate is running successfully!';
@@ -9,6 +11,7 @@ class App extends React.Component {
     return (
       <div>
         <p>{displayMessage}</p>
+        <DayList />
       </div>
     );
   }
