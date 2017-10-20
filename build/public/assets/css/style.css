@@ -71,18 +71,22 @@ body {
 
 .open {
   background-color: rgb(90,150,200);
+  transition: 0s 100ms;
 }
 
 .open:hover {
   background-color: rgb(110,170,220);
+  transition: 0s;
 }
 
 .scheduled {
   background-color: rgb(0,206,209);
+  transition: 0s 100ms;
 }
 
 .scheduled:hover {
   background-color: rgb(0,226,229);
+  transition: 0s;
 }
 
 #corner {

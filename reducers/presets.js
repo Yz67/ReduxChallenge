@@ -4,7 +4,7 @@ const END_TIME = 17;            // Hour in military time (0,23)
 
 const START_DATE = new Date();  // First day in the calendar
 
-const NUM_DAYS = 7;             // Number of days in the calendar
+const NUM_DAYS = 10;             // Number of days in the calendar
 
 const DAY_ABBREVIATIONS = {     // How we want days of the week represented in the calendar
   0: 'Sunday',
