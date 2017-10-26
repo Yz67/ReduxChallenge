@@ -1,16 +1,33 @@
 import React from 'react';
-
-const displayMessage =
-  'The React Redux Boilerplate is running successfully!';
+import Board from './Board';
+import PlayerLine from './PlayerLine';
 
 // class component
-class App extends React.Component {
+class Game extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      playerTurn: "X"
+    }
+  }
+
+  switchPlayer() {
+    this.setState({
+      playerTurn: this.state.playerTurn === "X" ? "O" : "X"
+    });
+  }
+
   render() {
     return (
       <div>
-        <p>{displayMessage}</p>
+        <PlayerLine playerTurn={this.state.playerTurn}/>
+        <Board
+          switchPlayer={this.switchPlayer.bind(this)}
+          playerTurn={this.state.playerTurn}
+        />
       </div>
-    );
+    )
   }
 };
 
@@ -42,4 +59,4 @@ class App extends React.Component {
 //
 // App = connect(mapStateToProps, mapDispatchToProps)(App);
 
-export default App;
+export default Game;
