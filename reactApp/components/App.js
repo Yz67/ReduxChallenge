@@ -1,45 +1,38 @@
 import React from 'react';
-
-const displayMessage =
-  'The React Redux Boilerplate is running successfully!';
+import { connect } from 'react-redux';
 
 // class component
 class App extends React.Component {
   render() {
     return (
       <div>
-        <p>{displayMessage}</p>
+        <div style={{width: "100px",
+          height: "100px",
+          border: "2px solid black",
+          backgroundColor: this.props.color}}></div>
+        <button onClick={() => this.props.changeColor("red")}>Red</button>
+        <button onClick={() => this.props.changeColor("green")}>Green</button>
+        <button onClick={() => this.props.changeColor("blue")}>Blue</button>
       </div>
     );
   }
 };
 
-/* Equivalent function component! */
-// const App = (/* props OR { prop1, prop2 } */) => (
-//    <div>
-//      <p>{displayMessage}</p>
-//    </div>
-// );
 
 
-/*
-==========================================================
-  This is what you do if you want this component or any
-  other to become a connected "container" component!
-==========================================================
-*/
+
 // /* At top of file: */
-// import { connect } from 'react-redux';
+// i
 //
 // /* At bottom of file: */
-// const mapStateToProps = (state) => ({
-//    someStateProp: /* state.something typically */
-// });
-//
-// const mapDispatchToProps = (dispatch) => ({
-//    someDispProp: /* some function that dispatches an action */
-// });
-//
-// App = connect(mapStateToProps, mapDispatchToProps)(App);
+const mapStateToProps = (state) => ({
+   color: state.color
+});
+
+const mapDispatchToProps = (dispatch) => ({
+   changeColor: (color) => dispatch({ type: "SET_COLOR", color: color})
+});
+
+App = connect(mapStateToProps, mapDispatchToProps)(App);
 
 export default App;

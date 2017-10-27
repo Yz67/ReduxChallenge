@@ -4,8 +4,8 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import App from './components/App';
 /* WHEN YOU ACTUALLY WRITE YOUR REDUCER, FIX THE 2 LINES BELOW */
-// import mainReducer from './reducers/mainReducer'; /*UNCOMMENT*/
-const mainReducer = (state = 5) => state; /*REMOVE*/
+import mainReducer from './reducer';
+
 
 const store = createStore(mainReducer);
 
