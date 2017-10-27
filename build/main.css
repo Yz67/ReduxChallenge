@@ -32,6 +32,14 @@ ol, ul {
   width: 34px;
 }
 
+.square-user {
+  background: #FF0000;
+}
+
+.square-move {
+  background: yellow;
+}
+
 .square:focus {
   outline: none;
 }

@@ -1,31 +1,20 @@
 import React from 'react';
 import Board from './Board';
-import PlayerLine from './PlayerLine';
+// import PlayerLine from './PlayerLine';
 
 // class component
 class Game extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      playerTurn: "X"
-    }
   }
 
-  switchPlayer() {
-    this.setState({
-      playerTurn: this.state.playerTurn === "X" ? "O" : "X"
-    });
-  }
+
 
   render() {
     return (
       <div>
-        <PlayerLine playerTurn={this.state.playerTurn}/>
-        <Board
-          switchPlayer={this.switchPlayer.bind(this)}
-          playerTurn={this.state.playerTurn}
-        />
+        {/* <PlayerLine playerTurn={this.state.playerTurn}/> */}
+        <Board/>
       </div>
     )
   }
