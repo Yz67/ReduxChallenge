@@ -15,6 +15,9 @@ const getTimeString = function(hour){
 var defaultTimes = new Array(END_TIME - START_TIME + 1);
 defaultTimes.fill(START_TIME);
 defaultTimes = defaultTimes.map((time,index)=>(getTimeString(time+index)));
+
+
+
 const timesReducer = (state = defaultTimes, action) => {
     /*switch (action.type) {
         default:
