@@ -1,6 +1,6 @@
 # Redux Take Home Challenge
 
-This is an assignment intended to be completed individually and with as little help form the TA's as you can manage.
+This is an assignment intended to be completed individually and with as little help from the TA's as you can manage.
 
 This assignment was a real coding challenge presented to a former Horizons student as part of an interview process with a tech company, except the assignment was to use Flux instead of Redux.
 
