@@ -1,17 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import WeekContainer from './components/WeekContainer';
+import mainReducer from './reducers/mainReducer';
+
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import App from './components/App';
-/* WHEN YOU ACTUALLY WRITE YOUR REDUCER, FIX THE 2 LINES BELOW */
-// import mainReducer from './reducers/mainReducer'; /*UNCOMMENT*/
-const mainReducer = (state = 5) => state; /*REMOVE*/
+
 
 const store = createStore(mainReducer);
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <WeekContainer />
   </Provider>,
   document.getElementById('root')
 );
